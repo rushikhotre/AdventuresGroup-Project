@@ -1,0 +1,263 @@
+/* ---------------- RESET ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ---------------- BODY ---------------- */
+body {
+  background-image: url('Background.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- NAVBAR ---------------- */
+nav {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 60px;
+  padding: 0 1rem;
+  z-index: 1000;
+}
+
+nav .nav-left-logo {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav .nav-left-logo img {
+  height: 57px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logo-text .black-text { color: black; }
+.logo-text .orange-text { color: orange; }
+
+nav ul.nav-center {
+  list-style: none; /* ✅ Removes bullets */
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+nav ul.nav-center li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+nav ul.nav-center li a:hover { color: black; }
+
+/* Dropdown Menu */
+nav ul.nav-center li.dropdown {
+  position: relative;
+}
+
+nav ul.nav-center li.dropdown .dropdown-menu {
+  display: none;
+  list-style: none; /* ✅ No bullets in dropdown */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 150px;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding-left: 0;
+}
+
+nav ul.nav-center li.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+nav ul.nav-center li.dropdown .dropdown-menu li a {
+  padding: 8px 12px;
+  display: block;
+  color: #333;
+}
+
+nav ul.nav-center li.dropdown .dropdown-menu li a:hover {
+  background-color: #f2f2f2;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1005;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #333;
+  margin: 4px 0;
+}
+
+/* ---------------- MOBILE NAV ---------------- */
+@media screen and (max-width: 768px) {
+  .hamburger { display: flex; }
+
+  nav ul.nav-center {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 1rem 0;
+    z-index: 1001;
+  }
+
+  nav ul.nav-center.active { display: flex; }
+
+  nav ul.nav-center li a { font-size: 1rem; }
+
+  nav ul.nav-center li.dropdown .dropdown-menu {
+    position: relative;
+    top: 0;
+    box-shadow: none;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  nav ul.nav-center li.dropdown.open .dropdown-menu { display: flex; }
+}
+
+/* ---------------- LOGIN CONTAINER ---------------- */
+.login-container {
+  max-width: 500px;
+  margin: 60px auto;
+  background: rgba(255,255,255,0.95);
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* ---------------- FORM FIELDS ---------------- */
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-container input:focus {
+  border-color: orange;
+  box-shadow: 0 0 10px rgba(255,165,0,0.5);
+  outline: none;
+}
+
+/* Password Toggle */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Remember Me */
+.checkbox-group {
+  margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  accent-color: orange;
+  transform: scale(1.2);
+  margin-right: 5px;
+}
+
+/* ---------------- BUTTON ---------------- */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: orange;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: darkorange;
+  transform: translateY(-2px);
+}
+
+/* Register link */
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.register-link a {
+  color: orange;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------- MOBILE ---------------- */
+@media screen and (max-width: 768px) {
+  .login-container {
+    max-width: 90%;
+    margin: 40px auto;
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration - DareDevil Riders</title>
+  <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-left-logo">
+      <img src="logo.png" alt="Logo">
+      <span class="logo-text">
+        <span class="black-text">DareDevil</span> <span class="orange-text">Riders</span>
+      </span>
+    </div>
+    <ul class="nav-center">
+      <li><a href="home.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Tours ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="pasttours.html">Past Tours</a></li>
+          <li><a href="futuretours.html">Future Tours</a></li>
+        </ul>
+      </li>
+      <li><a href="registration.html">Registration</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+    </ul>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Registration Form -->
+  <div class="form-container">
+    <h2>Register</h2>
+    <form id="registrationForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="number" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required>
+
+      <label>Gender:</label>
+      <div class="gender-group">
+        <label><input type="radio" name="gender" value="Male" required> Male</label>
+        <label><input type="radio" name="gender" value="Female"> Female</label>
+        <label><input type="radio" name="gender" value="Other"> Other</label>
+      </div>
+
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="registration.js"></script>
+</body>
+</html>

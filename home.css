@@ -1,0 +1,298 @@
+/* Reset default margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full page background image */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(Background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Navigation bar styling */
+nav {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 1rem;
+  height: 60px;
+  z-index: 1000;
+}
+
+/* Logo + text on the left corner */
+nav .nav-left-logo {
+  position: absolute;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav .nav-left-logo img {
+  height: 57px;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  gap: 0.2rem;
+}
+
+.logo-text .black-text {
+  color: black;
+}
+
+.logo-text .orange-text {
+  color: orange;
+}
+
+/* Desktop nav links */
+nav ul.nav-center {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin-left: -20px;
+  position: static;
+  top: auto;
+  left: auto;
+  right: auto;
+  background-color: transparent;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  z-index: auto;
+}
+
+nav ul.nav-center li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+nav ul.nav-center li a:hover {
+  color: black;
+}
+
+/* Dropdown menu */
+nav ul.nav-center li.dropdown {
+  position: relative;
+}
+
+nav ul.nav-center li.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  flex-direction: column;
+  z-index: 1002;
+  list-style: none;
+  padding-left: 0;
+
+}
+
+nav ul.nav-center li.dropdown .dropdown-menu li a {
+  padding: 8px 12px;
+  font-size: 1rem;
+  display: block;
+  color: #333;
+}
+
+nav ul.nav-center li.dropdown .dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show dropdown on hover for desktop */
+@media screen and (min-width: 769px) {
+  nav ul.nav-center li.dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+}
+
+/* Hamburger menu for mobile */
+.hamburger {
+  display: none; /* hidden by default for desktop */
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1005; /* above carousel and nav */
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #333;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* Mobile nav dropdown */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul.nav-center {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    display: none; /* hidden initially */
+    z-index: 1001; /* above carousel */
+  }
+
+  nav ul.nav-center.active {
+    display: flex; /* show when hamburger clicked */
+  }
+
+  nav ul.nav-center li a {
+    font-size: 1rem;
+  }
+
+  nav ul.nav-center li.dropdown .dropdown-menu {
+    position: relative;
+    top: 0;
+    box-shadow: none;
+    display: none; /* hidden initially */
+    width: 100%;
+    flex-direction: column;
+  }
+
+  nav ul.nav-center li.dropdown.open .dropdown-menu {
+    display: flex; /* show submenu when parent has .open */
+  }
+}
+
+/* Carousel styling */
+.carousel-container {
+  position: relative;
+  max-width: 700px;
+  margin: 5% auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  display: none;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+/* Carousel navigation buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 15px;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  user-select: none;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Responsive carousel */
+@media screen and (max-width: 768px) {
+  .carousel-container {
+    max-width: 90%;
+    margin-top: 80px;
+  }
+
+  .carousel-slide {
+    height: 250px;
+  }
+}
+
+/* Welcome text styling */
+.welcome-text {
+  text-align: center;
+  font-size: 1.3rem;
+  color: rgb(0, 0, 0);
+  margin-top: 5px;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+/* Footer styling */
+footer {
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 10px 5px;
+  font-size: 0.9rem;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: black;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    font-size: 0.8rem;
+    padding: 8px 4px;
+  }
+}
